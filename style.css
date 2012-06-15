@@ -6,7 +6,7 @@
 	text-shadow:black 2px 2px 2px;
 }
 body{
-	background:#121212;
+	background:#343434;
 }
 header{
 	padding:20px;
@@ -36,6 +36,9 @@ h1{
 h2{	
 	font-weight:normal;
 	font-size:40px;
+	margin-left:380px;
+}
+section h2{
 	margin:20px;
 	margin-left:400px;
 }
