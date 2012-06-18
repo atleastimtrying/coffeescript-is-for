@@ -14,7 +14,7 @@
       <section>
         <h2>a modern JS</h2>
         <ul>
-          <li>Invented in </li>
+          <li>Invented in 2009</li>
           <li>Open source</li>
           <li>Compiles to Javascript</li>
           <li>Runs on node/ in the browser</li>
@@ -45,9 +45,9 @@ helloWorld();
         <h2>functions</h2>
         <ul>
           <li>-> replaces function()</li>
-          <li>(arguement)-> replaces function(argument)</li>
+          <li>(argument)-> replaces function(argument)</li>
           <li>functions can be single or multiline.</li>
-          <li>when calling functions brackets can be ommitted (most of the time).</li>
+          <li>when calling functions brackets can be omitted (most of the time).</li>
           <li>{} are ignored in favour of indentation</li>
         </ul>
       </section>
@@ -72,26 +72,12 @@ coffeeIsWarm = (cold > coffeetemp && coffeetemp > hot);
 </pre>
         <ul>
           <li>if and unless allow one line statements.</li>
-          <li>== or is compiles to ==</li>
+          <li>== or is compiles to ===</li>
           <li>!= or isnt compiles to !==</li>
           <li>conditions can be chained</li>
         </ul>
       </section>
 
-      <section>
-        <h2>iterations</h2>
-<pre>
-makeCoffee type for type of coffee
-</pre>
-        <p>compiles to</p>
-<pre>
-var type;
-
-for (type in coffee) {
-  makeCoffee(type);
-}
-</pre>
-      </section>
       <section>
         <h2>iterations</h2>
 <pre>
@@ -112,7 +98,20 @@ for (_i = 0, _len = FES.length; _i < _len; _i++) {
           <li>easy json object traversal</li>
         </ul>
       </section>
+      <section>
+        <h2>iterations of objects</h2>
+<pre>
+makeCoffee type for type of coffee
+</pre>
+        <p>compiles to</p>
+<pre>
+var type;
 
+for (type in coffee) {
+  makeCoffee(type);
+}
+</pre>
+      </section>
       <section>
           <h2>useful new features</h2>
 <pre>
@@ -122,13 +121,13 @@ is #{2+3}"
 </pre>
 <p>Compiles to</p>
 <pre>
-"two plus three is " + (2 + 3);
-
 var index, _i;
 
 for (index = _i = 1; _i <= 10; index = ++_i) {
   console.log(index);
 }
+
+"two plus three is " + (2 + 3);
 </pre>
           <ul>
             <li>ranges</li>
@@ -147,6 +146,7 @@ for (index = _i = 1; _i <= 10; index = ++_i) {
           <li>node/commandline</li>
           <li>rails</li>
           <li>in the browser</li>
+          <li>join into one Coffeescript file</li>
         </ul>
       </section>
       <section>
@@ -188,7 +188,7 @@ describe "coffeescript", ->
 <pre>
 class Coffee
   constructor: (@name) ->
-  serve: () -> alert "is ready"
+  serve: () -> alert "#{@name} is ready"
 
 class Capuccino extends Coffee
   serve: ->
@@ -221,7 +221,7 @@ Coffee = (function() {
   }
 
   Coffee.prototype.serve = function() {
-    return alert("is ready");
+    return alert(this.name + " is ready");
   };
 
   return Coffee;
@@ -275,7 +275,7 @@ drink2.serve();
       <section>
         <h2>Object Orientated Programming</h2>
         <ul>
-          <li>class, extends super and new</li>
+          <li>class, extends, super and new</li>
           <li>more familiar than prototypical inheritance</li>
           <li>very tidily encapsulated</li>
         </ul>
@@ -285,15 +285,28 @@ drink2.serve();
         <h2>managable encapsulation and scope</h2>
 <pre>
 Account = (@customer, @coffee) ->
-  $('.coffee_button').bind 'click', (event) =>
+  $('.coffee_button').click (event) =>
     @customer.purchase @coffee
+</pre>
+        <p>compiles to</p>
+<pre>
+var Account;
+
+Account = function(customer, coffee) {
+  var _this = this;
+  this.customer = customer;
+  this.coffee = coffee;
+  return $('.coffee_button').click(function(event) {
+    return _this.customer.purchase(_this.coffee);
+  });
+};
 </pre>
         <ul>
           <li>@ refers to this or this.</li>
           <li>-> makes use of a standard function with the scope passing to wherever the function is called</li>
-          <li>=> makes use of bind keeping the scope to where teh function is instantiated</li>
+          <li>=> makes use of bind keeping the scope to where the function is instantiated</li>
           <li>Every coffeescript file is encapsulated within a function call</li>
-          <li>no need to use var keyword coffeescript declares variables at their heighest instance scope</li>
+          <li>no need to use var keyword coffeescript declares variables at their highest instance scope</li>
           <li>anything external to the file needs to be bound to a global variable such as window or exports</li>
 
         </ul>
@@ -360,7 +373,7 @@ $(function() {
         <ul>
           <li>compiled coffeescript is good javascript</li>
           <li>js lint compatible</li>
-          <li>makes you think of js environments as ‘proper code’</li>
+          <li>makes you think of js environments as &ldquo;proper code&rdquo;</li>
           <li>encourages OOP</li>
         </ul>
       </section>
@@ -415,7 +428,7 @@ $ -> window.app = new App
 </pre>
       </section>
     </article>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script src='jquery.js'></script>
     <script src="app.js"></script>
   </body>
 </html>
