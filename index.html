@@ -12,6 +12,12 @@
     </header>
     <article>
       <section>
+        <h2>...</h2>
+        <ul>
+          <li>Anders Fisher 2013</li>
+        </ul>
+      </section>
+      <section>
         <h2>a modern JS</h2>
         <ul>
           <li>Invented in 2009</li>
@@ -81,15 +87,15 @@ coffeeIsWarm = (cold > coffeetemp && coffeetemp > hot);
       <section>
         <h2>iterations</h2>
 <pre>
-makeCoffeeFor friend for friend in FES
+makeCoffeeFor smarty for smarty in smart421
 </pre>
         <p>compiles to</p>
 <pre>
 var friend, _i, _len;
 
-for (_i = 0, _len = FES.length; _i < _len; _i++) {
-  friend = FES[_i];
-  makeCoffeeFor(friend);
+for (_i = 0, _len = smart421.length; _i < _len; _i++) {
+  smarty = smart421[_i];
+  makeCoffeeFor(smarty);
 }
 </pre>
         <ul>
@@ -147,6 +153,7 @@ for (index = _i = 1; _i <= 10; index = ++_i) {
           <li>rails</li>
           <li>in the browser</li>
           <li>join into one Coffeescript file</li>
+          <li>Visual Studio plugin -> Web workbench</li>
         </ul>
       </section>
       <section>
@@ -301,6 +308,10 @@ Account = function(customer, coffee) {
   });
 };
 </pre>
+      </section>
+
+      <section>
+        <h2>managable encapsulation and scope</h2>
         <ul>
           <li>@ refers to this or this.</li>
           <li>-> makes use of a standard function with the scope passing to wherever the function is called</li>
@@ -308,7 +319,6 @@ Account = function(customer, coffee) {
           <li>Every coffeescript file is encapsulated within a function call</li>
           <li>no need to use var keyword coffeescript declares variables at their highest instance scope</li>
           <li>anything external to the file needs to be bound to a global variable such as window or exports</li>
-
         </ul>
       </section>
 
@@ -416,7 +426,7 @@ class App
       @changeSection -1
 
   normalizePosition: ->
-    @position = 0 if @position > @sections.length
+    @position = 0 if @position is @sections.length
     @position = @sections.length if @position < 0
 
   changeSection: (modifier)->
@@ -426,6 +436,15 @@ class App
 
 $ -> window.app = new App
 </pre>
+      </section>
+      <section>
+        <h2>you?</h2>
+        <ul>
+          <li>Questions?</li>
+          <li>@FESuffolk</li>
+          <li>@atleastimtrying</li>
+          <li>anders@js-dev.co.uk</li>
+        </ul>
       </section>
     </article>
     <script src='jquery.js'></script>

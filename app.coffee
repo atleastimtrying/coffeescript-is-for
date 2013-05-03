@@ -10,11 +10,11 @@ class App
 		$(section).hide() for section in @sections
 		$(@sections[@position]).show()
 
-	randomrgb: -> "rgb(#{@roundom 180 },#{@roundom 180 },#{@roundom 180 })"
+	randomhsla: -> "hsla(#{@roundom 360 },80%,30%, 1)"
 
 	roundom: (int)-> Math.ceil Math.random()*int
 	
-	setBackground: (section)-> $(section).css "background-color" : @randomrgb()
+	setBackground: (section)-> $(section).css "background-color" : @randomhsla()
 
 	keypress: (event)=>
 		if event.keyCode is 32
@@ -23,7 +23,7 @@ class App
     	@changeSection -1
 
 	normalizePosition: ->
-		@position = 0 if @position > @sections.length
+		@position = 0 if @position is @sections.length
 		@position = @sections.length if @position < 0
 
 	changeSection: (modifier)->
